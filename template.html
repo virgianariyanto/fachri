@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FACHRI KURNIAWAN | 3D Exhibition &amp; Event Designer</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#f9f9f9",
+                    "error": "#ba1a1a",
+                    "on-background": "#1a1c1c",
+                    "secondary": "#855300",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-secondary-fixed-variant": "#653e00",
+                    "primary-fixed": "#e5e2e1",
+                    "primary": "#000000",
+                    "on-error": "#ffffff",
+                    "on-tertiary-fixed": "#1a1c1c",
+                    "tertiary-container": "#1a1c1c",
+                    "inverse-primary": "#c8c6c5",
+                    "surface-tint": "#5f5e5e",
+                    "primary-fixed-dim": "#c8c6c5",
+                    "on-surface": "#1a1c1c",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "secondary-container": "#fea619",
+                    "tertiary-fixed": "#e2e2e2",
+                    "on-primary-fixed": "#1c1b1b",
+                    "on-primary-fixed-variant": "#474746",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-variant": "#e2e2e2",
+                    "surface-dim": "#dadada",
+                    "on-tertiary-container": "#838484",
+                    "inverse-surface": "#2f3131",
+                    "tertiary": "#000000",
+                    "secondary-fixed": "#ffddb8",
+                    "surface-container": "#eeeeee",
+                    "on-primary-container": "#858383",
+                    "on-tertiary-fixed-variant": "#454747",
+                    "inverse-on-surface": "#f0f1f1",
+                    "surface-container-high": "#e8e8e8",
+                    "background": "#f9f9f9",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#444748",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#ffb95f",
+                    "outline": "#747878",
+                    "on-secondary-fixed": "#2a1700",
+                    "primary-container": "#1c1b1b",
+                    "outline-variant": "#c4c7c7",
+                    "on-secondary-container": "#684000",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "offset-overlap": "48px",
+                    "gutter": "24px",
+                    "unit": "8px",
+                    "margin-desktop": "64px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "body-md": ["Inter"],
+                    "headline-lg": ["Space Grotesk"],
+                    "body-lg": ["Inter"],
+                    "label-sm": ["Space Grotesk"],
+                    "label-mono": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "headline-xl": ["Space Grotesk"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "500" }],
+                    "body-md": ["16px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                    "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                    "body-lg": ["18px", { "lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400" }],
+                    "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "600" }],
+                    "headline-lg-mobile": ["32px", { "lineHeight": "1.2", "letterSpacing": "0.02em", "fontWeight": "600" }],
+                    "headline-xl": ["72px", { "lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .blueprint-pattern {
+            background-image: radial-gradient(circle, #e2e2e2 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .text-stroke-amber {
+            -webkit-text-stroke: 1px #855300;
+            color: transparent;
+        }
+        .gallery-border {
+            border: 1px solid #c4c7c7;
+        }
+        .asymmetric-offset {
+            margin-top: -64px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopAppBar Component (from COMPONENTS_5) -->
+<nav class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
+<div class="flex justify-between items-center w-full px-margin-desktop py-gutter max-w-full">
+<span class="font-headline-md text-headline-md font-bold text-primary tracking-tighter">STUDIO_3D</span>
+<div class="hidden md:flex items-center gap-10 font-label-sm text-label-sm tracking-widest">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#work">PROJECTS</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#about">STUDIO</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#services">SERVICES</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#contact">CONTACT</a>
+</div>
+<button class="bg-primary text-on-primary px-8 py-2 font-label-sm tracking-widest hover:bg-secondary transition-all active:scale-95 duration-200">
+            INQUIRE
+        </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section: Unique Asymmetrical Framing -->
+<section class="relative min-h-[90vh] w-full flex items-center bg-surface overflow-hidden pt-12 pb-24" id="home"><div class="container mx-auto px-margin-mobile md:px-margin-desktop relative">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-0 items-center">
+<!-- Background Layered Text -->
+<div class="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none overflow-hidden -z-10 opacity-[0.03]">
+<span class="font-headline-xl text-[20vw] leading-none whitespace-nowrap font-bold tracking-tighter">ARCHITECTURAL</span>
+</div>
+<!-- Left Content: Impactful Typography -->
+<div class="lg:col-span-7 z-20 pt-20 lg:pt-0">
+<p class="font-label-mono text-label-sm text-secondary mb-8 tracking-[0.4em] uppercase">JAKARTA BASED STUDIO</p>
+<h1 class="font-headline-xl text-7xl md:text-[120px] leading-[0.85] mb-12 text-on-surface tracking-tighter">
+        FACHRI<br/>
+<span class="text-stroke-amber ml-12 md:ml-24">KURNIAWAN</span>
+</h1>
+<div class="flex flex-col md:flex-row items-start md:items-center gap-12">
+<p class="font-headline-md text-on-surface-variant max-w-xs italic border-l-2 border-secondary pl-6">
+          3D Exhibition &amp; Event Designer / Branding Specialist
+        </p>
+<div class="flex gap-4">
+<a class="bg-primary text-on-primary px-10 py-4 font-label-sm tracking-widest hover:bg-secondary transition-all active:scale-95" href="#work">
+            VIEW WORK
+          </a>
+<a class="border border-outline text-on-surface px-10 py-4 font-label-sm tracking-widest hover:bg-surface-container transition-all active:scale-95" href="#contact">
+            HIRE ME
+          </a>
+</div>
+</div>
+</div>
+<!-- Right Content: Overlapping Image Gallery -->
+<div class="lg:col-span-5 relative mt-20 lg:mt-0">
+<div class="relative z-10">
+<div class="gallery-border p-3 bg-white shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-700">
+<div class="aspect-[4/5] bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBY88bx-Bc5IGPQj7pVo13LPP7MnmpRgjGuU47jy1YjKck9Iu0W4B1Zg4d6r9_mmoTe3hgYmZ27PsWIjWMd_jcSplkixtyuprB3OP_bqtnCbhYwICX1A8p1tXeuTJcCoVIgwJcfAFbEVDPKTdVzutWqPoMnrih2Wi63ceWurYzfowtcQh1XZRWeGg58CctgI3xvdKNDfK0RjdA3Z2TJvz9KEIuI37p-jD0_nbEfwIewZqTYjVqJNHPeWg')"></div>
+</div>
+</div>
+<!-- Secondary Overlapping Element -->
+<div class="absolute -top-12 -right-8 w-2/3 aspect-square bg-surface-container-highest -z-10 blueprint-pattern opacity-40"></div>
+<!-- Floating Label -->
+<div class="absolute bottom-12 -left-12 z-30 bg-primary text-on-primary p-6 hidden md:block">
+<span class="font-label-mono text-[10px] tracking-[0.3em] uppercase block mb-2 opacity-60">CURRENT_PROJECT</span>
+<span class="font-label-sm tracking-widest">X-MUSIC FEST 2024</span>
+</div>
+</div>
+</div>
+</div></section>
+<!-- About Section: Gallery Style -->
+<section class="py-24 md:py-32 bg-surface-container-lowest" id="about">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<div class="flex flex-col lg:flex-row gap-20">
+<div class="lg:w-2/3">
+<span class="font-label-sm text-secondary mb-8 block tracking-[0.2em]">01 / THE STUDIO</span>
+<h2 class="font-headline-lg text-on-surface mb-10 leading-tight">Crafting experiences through spatial precision and technical artistry.</h2>
+<div class="h-[1px] w-full bg-outline-variant mb-10"></div>
+<p class="font-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+                        I specialize in translating brand identities into three-dimensional realities. Based in Jakarta, I work at the intersection of architecture and event design, ensuring every pixel and every millimeter is calculated for maximum impact. From massive expo booths to intimate shop-in-shop experiences, my focus is always on the synthesis of form, function, and brand storytelling.
+                    </p>
+</div>
+<div class="lg:w-1/3 bg-surface border border-outline-variant p-10 shadow-sm relative">
+<div class="absolute -top-4 -right-4 bg-secondary text-on-secondary px-4 py-1 font-label-mono text-[10px] tracking-widest">CORE_STACK</div>
+<h3 class="font-label-sm text-on-surface-variant mb-10 tracking-widest border-b border-outline-variant pb-4">TOOLBOX_CORE</h3>
+<ul class="space-y-6 font-label-mono text-sm tracking-tighter">
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">01</span> <span>SKETCHUP</span></li>
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">02</span> <span>RHINO</span></li>
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">03</span> <span>BLENDER</span></li>
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">04</span> <span>LUMION</span></li>
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">05</span> <span>KEYSHOT</span></li>
+<li class="flex justify-between items-center"><span class="text-secondary opacity-50">06</span> <span>ADOBE SUITE</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Services: Minimal Grid -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface" id="services">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20">
+<span class="font-label-sm text-secondary mb-4 block tracking-[0.2em]">02 / SERVICES</span>
+<h2 class="font-headline-lg text-on-surface">Spatial Solutions</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-outline-variant">
+<!-- Service 1 -->
+<div class="p-10 border-r border-b border-outline-variant hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-8 block group-hover:text-secondary">architecture</span>
+<h3 class="font-headline-md text-xl mb-6">Exhibition Design</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Large-scale pavilion concepts with a focus on visitor flow and technical feasibility.</p>
+</div>
+<!-- Service 2 -->
+<div class="p-10 border-r border-b border-outline-variant hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-8 block group-hover:text-secondary">storefront</span>
+<h3 class="font-headline-md text-xl mb-6">Commercial Space</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Shop-in-shop and retail environments that elevate product presentation.</p>
+</div>
+<!-- Service 3 -->
+<div class="p-10 border-r border-b border-outline-variant hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-8 block group-hover:text-secondary">theaters</span>
+<h3 class="font-headline-md text-xl mb-6">Event Set Design</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Immersive stages and branded environments for product launches and corporate events.</p>
+</div>
+<!-- Service 4 -->
+<div class="p-10 border-r border-b border-outline-variant hover:bg-surface-container transition-colors group">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant mb-8 block group-hover:text-secondary">category</span>
+<h3 class="font-headline-md text-xl mb-6">Visual Branding</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">Integrating graphic identity into the physical space for holistic brand consistency.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Section: Gallery Frames & Overlaps -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface-container-low" id="work">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-24">
+<div>
+<span class="font-label-sm text-secondary mb-4 block tracking-[0.2em]">03 / SELECTED WORKS</span>
+<h2 class="font-headline-lg text-on-surface">Spatial Portfolios</h2>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-on-surface-variant block mb-1">CURATED SELECTION</span>
+<span class="font-label-mono text-[10px] tracking-widest text-secondary">SCALED 1:1 VISUALS</span>
+</div>
+</div>
+<div class="space-y-40">
+<!-- Project 1: Asymmetric -->
+<div class="flex flex-col lg:flex-row gap-12 items-center">
+<div class="w-full lg:w-3/5">
+<div class="gallery-border p-4 bg-white shadow-lg relative group overflow-hidden">
+<div class="aspect-[16/10] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_UkYwktYH1u9Sz3hAoLl_ftAtRcBRxej5KJXx1xTVXx6ztMjAJiFmBqEVyCKhJUA87UWD-NOuUwfBkxuPRjycl_CenHE6YG3QQVv8yL4aYlFTTfhmzPnwpkGJerFtXgwEJjg9X526useiFVGflJdJrrlcNhoJi7nkBzyHfuuDwQoHpYaKBnC3Eqd4SXx8pFvbvh1M6EXGsQFaj3hgyRKlnC6MlIbJV79bnadSOPLou9pBqKbb0CHynw')"></div>
+</div>
+</div>
+<div class="w-full lg:w-2/5 lg:-ml-20 z-10 bg-surface p-12 border border-outline-variant shadow-xl">
+<p class="font-label-mono text-secondary text-xs mb-4 tracking-widest">EVENT SET DESIGN</p>
+<h3 class="font-headline-md mb-6">FUTURE_VIBE DJ CONSOLE</h3>
+<p class="text-on-surface-variant mb-8 text-sm leading-relaxed">Ultra-modern booth for X-MUSIC FEST featuring geometric panels and high-fidelity rendering for technical stage production.</p>
+<div class="flex justify-between text-[10px] font-label-mono text-on-surface-variant border-t border-outline-variant pt-6">
+<span>CLIENT: X-MUSIC FEST</span>
+<span>YEAR: 2024</span>
+</div>
+</div>
+</div>
+<!-- Project 2: Reverse Asymmetric -->
+<div class="flex flex-col lg:flex-row-reverse gap-12 items-center">
+<div class="w-full lg:w-3/5">
+<div class="gallery-border p-4 bg-white shadow-lg relative group overflow-hidden">
+<div class="aspect-[16/10] bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC05wdneId7oHzX6v9YgseCxf2NL_NDJLe1mTtqFmNQEESlOs4OHPu-qWZjQUZFgms6TJswjUXh4rh9ENtYY-x0xlhqbXAwbZEWiaA3FqkIt_dxk15V9mdR-0gNBcyem_FEMF7bLCh3_qhtzru_wSWYI0XProMCILff2JDBsCBYI_CMoR2neX-Gif9-oEp1jVBfk8ylckwGxWh0EQ_D3ZCd3MuNluJLzFKxz9Xm0hwMtAP7-Y8G-OUs3g')"></div>
+</div>
+</div>
+<div class="w-full lg:w-2/5 lg:-mr-20 z-10 bg-surface p-12 border border-outline-variant shadow-xl">
+<p class="font-label-mono text-secondary text-xs mb-4 tracking-widest">EXHIBITION BOOTH</p>
+<h3 class="font-headline-md mb-6">PETFEST 2026</h3>
+<p class="text-on-surface-variant mb-8 text-sm leading-relaxed">Award-winning pavilion design for Pet Care Indo, emphasizing minimal architectural aesthetics and modular sustainability.</p>
+<div class="flex justify-between text-[10px] font-label-mono text-on-surface-variant border-t border-outline-variant pt-6">
+<span>STATUS: RUNNER UP</span>
+<span>AWARD WINNING</span>
+</div>
+</div>
+</div>
+<!-- Project 3: Large Feature -->
+<div class="relative pt-12">
+<div class="gallery-border p-6 bg-white shadow-2xl">
+<div class="aspect-[21/9] bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNcgtwbKLay5vpHldlvfnaoTH7g8jX-eJLV_V7sO5bWsfpLAZrJE1Hf3nxwUTk8E3ySZlt74o8MPqcvwW0rInsrBcG-q21IgjJVFaTs1NI7oNetXVxwleEsyMiC21JWiqyrOIdlXVL_34vbZ5kn3enKBIhQr0k3VYjYkNfX1zciFvt4P73mYNYlWQhbfhcHWtH-XjPvCAGFZ_hT1Vqut-oCUi_LFN58zB9e4O_u7zjsdKhVtXOR7hLRA')"></div>
+<div class="mt-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+<div>
+<p class="font-label-mono text-secondary text-xs mb-2 tracking-widest">COMMERCIAL SPACE</p>
+<h3 class="font-headline-md">CHRONOS LUXURY RETAIL HUB</h3>
+</div>
+<div class="flex gap-12 text-right">
+<div>
+<span class="font-label-mono text-[10px] text-on-surface-variant block">LOCATION</span>
+<span class="font-body-md font-semibold">JAKARTA SELATAN</span>
+</div>
+<div>
+<span class="font-label-mono text-[10px] text-on-surface-variant block">TYPE</span>
+<span class="font-body-md font-semibold">RETAIL INTERIOR</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Workflow Section: Blueprint Style -->
+<section class="py-32 bg-surface blueprint-pattern border-y border-outline-variant">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto">
+<span class="font-label-sm text-secondary mb-4 block tracking-[0.2em]">04 / WORKFLOW</span>
+<h2 class="font-headline-lg text-on-surface mb-24">The Delivery System</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-2">
+<div class="relative p-8 border border-outline bg-white hover:border-secondary transition-all">
+<span class="absolute -top-4 -left-4 w-10 h-10 bg-primary text-on-primary flex items-center justify-center font-label-mono font-bold">01</span>
+<h4 class="font-headline-md text-lg mb-4 mt-4 uppercase tracking-wider">CONCEPT</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Brainstorming spatial logic, mood-boarding and site analysis.</p>
+</div>
+<div class="relative p-8 border border-outline bg-white hover:border-secondary transition-all">
+<span class="absolute -top-4 -left-4 w-10 h-10 bg-surface border border-primary text-primary flex items-center justify-center font-label-mono font-bold">02</span>
+<h4 class="font-headline-md text-lg mb-4 mt-4 uppercase tracking-wider">VISUALS</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">High-fidelity 3D modeling and photorealistic octane rendering.</p>
+</div>
+<div class="relative p-8 border border-outline bg-white hover:border-secondary transition-all">
+<span class="absolute -top-4 -left-4 w-10 h-10 bg-surface border border-primary text-primary flex items-center justify-center font-label-mono font-bold">03</span>
+<h4 class="font-headline-md text-lg mb-4 mt-4 uppercase tracking-wider">TECHNICAL</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Detailed CAD blueprints for production and construction precision.</p>
+</div>
+<div class="relative p-8 border border-outline bg-white hover:border-secondary transition-all">
+<span class="absolute -top-4 -left-4 w-10 h-10 bg-surface border border-primary text-primary flex items-center justify-center font-label-mono font-bold">04</span>
+<h4 class="font-headline-md text-lg mb-4 mt-4 uppercase tracking-wider">BUILD</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">Supervising physical production and high-end finishing touches.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-24 bg-surface">
+<div class="px-margin-mobile md:px-margin-desktop max-w-7xl mx-auto border-b border-outline-variant pb-24">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-xl text-7xl text-stroke-amber mb-4 block">50+</span>
+<span class="font-label-sm text-on-surface-variant tracking-[0.2em] text-center md:text-left">PROJECTS COMPLETED</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-xl text-7xl text-stroke-amber mb-4 block">12+</span>
+<span class="font-label-sm text-on-surface-variant tracking-[0.2em] text-center md:text-left">DESIGN AWARDS</span>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="font-headline-xl text-7xl text-secondary mb-4 block">2026</span>
+<span class="font-label-sm text-on-surface-variant tracking-[0.2em] text-center md:text-left">RUNNER-UP PETFEST</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-margin-mobile md:px-margin-desktop bg-surface" id="contact">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-24">
+<div>
+<span class="font-label-sm text-secondary mb-8 block tracking-[0.2em]">05 / CONTACT</span>
+<h2 class="font-headline-lg text-6xl mb-12 leading-[1.1]">Let's build something extraordinary.</h2>
+<p class="font-body-lg text-on-surface-variant mb-12">Currently accepting commissions for late 2024 and 2025 exhibitions.</p>
+<div class="p-8 border border-outline bg-surface-container-low italic text-on-surface-variant">
+                    "Spatial design is the ultimate form of branding. It's where the brand becomes tangible."
+                </div>
+</div>
+<div class="flex flex-col gap-2">
+<a class="group flex items-center justify-between py-10 border-b border-outline-variant hover:border-secondary transition-colors" href="#">
+<span class="font-headline-md text-3xl group-hover:text-secondary transition-colors">WHATSAPP</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transform transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">arrow_outward</span>
+</a>
+<a class="group flex items-center justify-between py-10 border-b border-outline-variant hover:border-secondary transition-colors" href="#">
+<span class="font-headline-md text-3xl group-hover:text-secondary transition-colors">EMAIL</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transform transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">arrow_outward</span>
+</a>
+<a class="group flex items-center justify-between py-10 border-b border-outline-variant hover:border-secondary transition-colors" href="#">
+<span class="font-headline-md text-3xl group-hover:text-secondary transition-colors">LINKEDIN</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transform transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">arrow_outward</span>
+</a>
+<a class="group flex items-center justify-between py-10 border-b border-outline-variant hover:border-secondary transition-colors" href="#">
+<span class="font-headline-md text-3xl group-hover:text-secondary transition-colors">INSTAGRAM</span>
+<span class="material-symbols-outlined text-outline group-hover:text-secondary transform transition-transform group-hover:translate-x-2 group-hover:-translate-y-2">arrow_outward</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component (from COMPONENTS_5) -->
+<footer class="w-full relative mt-offset-overlap bg-surface border-t border-outline-variant">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-desktop py-margin-desktop w-full max-w-full">
+<div class="flex flex-col justify-between h-full">
+<span class="font-headline-md text-headline-md text-primary font-bold">STUDIO_3D</span>
+<p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant mt-10">
+                ©2024 STUDIO_3D ARCHITECTURAL VISUALIZATION
+            </p>
+</div>
+<div class="flex flex-col md:items-end justify-between">
+<div class="flex flex-wrap gap-8 md:gap-12">
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary border-b border-transparent hover:border-secondary transition-all opacity-80 hover:opacity-100" href="#">DRIBBBLE</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary border-b border-transparent hover:border-secondary transition-all opacity-80 hover:opacity-100" href="#">BEHANCE</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary border-b border-transparent hover:border-secondary transition-all opacity-80 hover:opacity-100" href="#">INSTAGRAM</a>
+<a class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant hover:text-secondary border-b border-transparent hover:border-secondary transition-all opacity-80 hover:opacity-100" href="#">LINKEDIN</a>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant opacity-50 mt-10">
+                JAKARTA, INDONESIA — WORLDWIDE SERVICE
+            </p>
+</div>
+</div>
+</footer>
+<script>
+    // Smooth scroll for anchors
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // Simple interaction observers for "gallery" entrance effects
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('opacity-100');
+                entry.target.classList.remove('translate-y-10');
+            }
+        });
+    }, observerOptions);
+
+    // Apply entrance classes to project cards
+    document.querySelectorAll('.gallery-border').forEach(el => {
+        el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-10');
+        observer.observe(el);
+    });
+</script>
+</body></html>
