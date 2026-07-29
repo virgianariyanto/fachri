@@ -1,0 +1,49 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id            String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name          String   @db.VarChar(100)
+  email         String   @unique @db.VarChar(255)
+  password_hash String   @db.VarChar(255)
+  role          String   @default("admin") @db.VarChar(20)
+  created_at    DateTime @default(now()) @db.Timestamp(6)
+  updated_at    DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("users") // Memetakan ke tabel 'users' di SQL
+}
+
+model Project {
+  id          String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title       String   @db.VarChar(200)
+  category    String?  @db.VarChar(100)
+  description String?  @db.Text
+  client      String?  @db.VarChar(100)
+  year        String?  @db.VarChar(10)
+  image_url   String?  @db.Text
+  status      String   @default("draft") @db.VarChar(20)
+  sort_order  Int?     @default(0)
+  created_at  DateTime @default(now()) @db.Timestamp(6)
+  updated_at  DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("projects") // Memetakan ke tabel 'projects' di SQL
+}
+
+model Inquiry {
+  id           String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name         String   @db.VarChar(100)
+  email        String   @db.VarChar(255)
+  project_type String?  @db.VarChar(100)
+  message      String?  @db.Text
+  status       String   @default("new") @db.VarChar(20)
+  created_at   DateTime @default(now()) @db.Timestamp(6)
+
+  @@map("inquiries") // Memetakan ke tabel 'inquiries' di SQL
+}
