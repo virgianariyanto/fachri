@@ -21,7 +21,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.email || !formData.password) {
-      setError('Email dan password wajib diisi.');
+      setError('Email and password are required.');
       return;
     }
     setLoading(true);
@@ -68,10 +68,10 @@ export default function Login() {
             className="text-on-primary text-5xl font-bold leading-[1.1] tracking-tighter mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            Selamat<br />datang<br />kembali.
+            Welcome<br />back.
           </h1>
           <p className="text-on-primary opacity-60 leading-relaxed max-w-xs" style={{ fontFamily: 'Inter, sans-serif' }}>
-            Kelola portofolio, proyek, dan permintaan klien dari satu panel admin terintegrasi.
+            Manage portfolios, projects, and client inquiries from a single integrated admin panel.
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function Login() {
               className="text-3xl font-bold text-primary tracking-tight"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Masuk ke akun Anda
+              Sign in to your account
             </h2>
           </div>
 
@@ -136,7 +136,7 @@ export default function Login() {
                 required
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="admin@studio3d.id"
+                placeholder=""
                 className="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-on-surface focus:outline-none focus:border-primary transition-colors text-sm"
                 style={{ fontFamily: 'Inter, sans-serif' }}
               />
@@ -186,25 +186,13 @@ export default function Login() {
               {loading ? (
                 <>
                   <span className="material-symbols-outlined animate-spin text-lg">progress_activity</span>
-                  MEMPROSES...
+                  PROCESSING...
                 </>
               ) : (
-                'MASUK KE DASHBOARD'
+                'SIGN IN TO DASHBOARD'
               )}
             </button>
           </form>
-
-          <div className="mt-8 text-center">
-            <p className="text-on-surface-variant text-sm" style={{ fontFamily: 'Inter, sans-serif' }}>
-              Belum punya akun?{' '}
-              <Link
-                to="/register"
-                className="text-secondary font-medium hover:underline underline-offset-4"
-              >
-                Daftar sekarang
-              </Link>
-            </p>
-          </div>
 
           <div className="mt-8 pt-8 border-t border-outline-variant text-center">
             <Link
@@ -213,7 +201,7 @@ export default function Login() {
               style={{ fontFamily: 'JetBrains Mono, monospace' }}
             >
               <span className="material-symbols-outlined text-base">arrow_back</span>
-              Kembali ke Portfolio
+              Back to Portfolio
             </Link>
           </div>
         </div>

@@ -11,7 +11,7 @@ export default function Footer() {
             fachri
           </a>
           <p className="font-label-sm text-xs uppercase tracking-widest text-on-surface-variant mt-10">
-            &copy;2024 fachri ARCHITECTURAL VISUALIZATION
+            &copy;2026 fachri ARCHITECTURAL VISUALIZATION
           </p>
         </div>
 

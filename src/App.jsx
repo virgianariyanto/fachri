@@ -4,8 +4,8 @@ import { AuthProvider } from './auth/AuthContext';
 import ProtectedRoute from './auth/ProtectedRoute';
 import Home from './pages/Home';
 import Login from './pages/Login';
-import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard';
+import Projects from './pages/Projects';
 
 export default function App() {
   return (
@@ -13,8 +13,8 @@ export default function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
           <Route
             path="/admin"
             element={

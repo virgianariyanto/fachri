@@ -500,10 +500,10 @@ export default function AdminDashboard() {
           {activeTab === 'overview' && (
             <div className="space-y-8">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <StatCard icon="grid_view" label="Total Proyek" value={projects.length} sub="Dalam database" />
-                <StatCard icon="mail" label="Inquiry Masuk" value={inquiries.length} sub="Semua pesan" />
-                <StatCard icon="emoji_events" label="Design Awards" value="12+" sub="Sejak 2020" />
-                <StatCard icon="visibility" label="Views Hari Ini" value="842" sub="+12% dari kemarin" />
+                <StatCard icon="grid_view" label="Total Projects" value={projects.length} sub="In database" />
+                <StatCard icon="mail" label="Total Inquiries" value={inquiries.length} sub="All messages" />
+                <StatCard icon="mark_email_unread" label="New Inquiries" value={inquiries.filter(inq => inq.status === 'new').length} sub="Awaiting response" />
+                <StatCard icon="design_services" label="Active Services" value={services.length} sub="Offered to clients" />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -511,10 +511,10 @@ export default function AdminDashboard() {
                 <div className="bg-surface border border-outline-variant p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="font-bold text-primary text-sm uppercase tracking-widest" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      Proyek Terbaru
+                      Recent Projects
                     </h2>
                     <button onClick={() => setActiveTab('projects')} className="text-xs text-secondary hover:underline" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                      LIHAT SEMUA
+                      VIEW ALL
                     </button>
                   </div>
                   <div className="space-y-3">
@@ -529,31 +529,37 @@ export default function AdminDashboard() {
                         </span>
                       </div>
                     ))}
+                    {projects.length === 0 && (
+                      <p className="text-xs text-on-surface-variant italic py-4">No projects found.</p>
+                    )}
                   </div>
                 </div>
 
-                {/* Recent inquiries */}
+                {/* Offered Services */}
                 <div className="bg-surface border border-outline-variant p-6">
                   <div className="flex items-center justify-between mb-6">
                     <h2 className="font-bold text-primary text-sm uppercase tracking-widest" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-                      Inquiry Terbaru
+                      Offered Services
                     </h2>
-                    <button onClick={() => setActiveTab('inquiries')} className="text-xs text-secondary hover:underline" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                      LIHAT SEMUA
+                    <button onClick={() => { setActiveTab('content'); setContentSubTab('services'); }} className="text-xs text-secondary hover:underline" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+                      MANAGE SERVICES
                     </button>
                   </div>
                   <div className="space-y-3">
-                    {inquiries.slice(0, 3).map((inq) => (
-                      <div key={inq.id} className="flex items-center justify-between py-3 border-b border-outline-variant last:border-0">
-                        <div>
-                          <p className="text-sm font-semibold text-on-surface" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{inq.name}</p>
-                          <p className="text-xs text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>{inq.project_type}</p>
+                    {services.slice(0, 4).map((s) => (
+                      <div key={s.id} className="flex items-center gap-4 py-3 border-b border-outline-variant last:border-0">
+                        <div className="w-10 h-10 bg-surface-container border border-outline-variant flex items-center justify-center flex-shrink-0 text-secondary">
+                          <span className="material-symbols-outlined text-lg">{s.icon}</span>
                         </div>
-                        <span className={`text-[10px] px-2 py-1 uppercase tracking-wider ${statusColors[inq.status === 'new' ? 'New' : inq.status === 'replied' ? 'Replied' : 'Closed']}`} style={{ fontFamily: 'JetBrains Mono, monospace' }}>
-                          {inq.status}
-                        </span>
+                        <div className="overflow-hidden flex-1">
+                          <p className="text-sm font-semibold text-on-surface truncate" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{s.title}</p>
+                          <p className="text-xs text-on-surface-variant truncate" style={{ fontFamily: 'Inter, sans-serif' }}>{s.description}</p>
+                        </div>
                       </div>
                     ))}
+                    {services.length === 0 && (
+                      <p className="text-xs text-on-surface-variant italic py-4">No services defined yet.</p>
+                    )}
                   </div>
                 </div>
               </div>
@@ -643,20 +649,20 @@ export default function AdminDashboard() {
                     </div>
 
                     <div>
-                      <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Gambar Render Proyek</label>
+                      <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Project Render Image</label>
                       <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                         {projectForm.image_url && (
                           <div className="relative w-32 h-20 bg-surface-container border border-outline-variant overflow-hidden flex-shrink-0">
                             <img
                               src={projectForm.image_url}
-                              alt="Preview proyek"
+                              alt="Project preview"
                               className="w-full h-full object-cover"
                             />
                             <button
                               type="button"
                               onClick={() => setProjectForm({ ...projectForm, image_url: '' })}
                               className="absolute top-1 right-1 bg-error text-on-error w-5 h-5 rounded-full flex items-center justify-center text-xs hover:bg-red-700 transition-colors"
-                              title="Hapus gambar"
+                              title="Remove image"
                             >
                               &times;
                             </button>
@@ -678,7 +684,7 @@ export default function AdminDashboard() {
                             }}
                             className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border file:border-outline-variant file:text-xs file:font-semibold file:bg-surface-container file:text-on-surface hover:file:bg-primary hover:file:text-on-primary transition-all cursor-pointer"
                           />
-                          <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Rekomendasi ukuran di bawah 2MB.</p>
+                          <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Recommended size under 2MB.</p>
                         </div>
                       </div>
                     </div>
@@ -953,20 +959,20 @@ export default function AdminDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant">Gambar Hero</label>
+                    <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant">Hero Image</label>
                     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                       {heroForm.image_url && (
                         <div className="relative w-32 h-20 bg-surface-container border border-outline-variant overflow-hidden flex-shrink-0">
                           <img
                             src={heroForm.image_url}
-                            alt="Preview hero"
+                            alt="Hero preview"
                             className="w-full h-full object-cover"
                           />
                           <button
                             type="button"
                             onClick={() => setHeroForm({ ...heroForm, image_url: '' })}
                             className="absolute top-1 right-1 bg-error text-on-error w-5 h-5 rounded-full flex items-center justify-center text-xs hover:bg-red-700 transition-colors"
-                            title="Hapus gambar"
+                            title="Remove image"
                           >
                             &times;
                           </button>
@@ -988,7 +994,7 @@ export default function AdminDashboard() {
                           }}
                           className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border file:border-outline-variant file:text-xs file:font-semibold file:bg-surface-container file:text-on-surface hover:file:bg-primary hover:file:text-on-primary transition-all cursor-pointer"
                         />
-                        <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Rekomendasi ukuran di bawah 2MB.</p>
+                        <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Recommended size under 2MB.</p>
                       </div>
                     </div>
                   </div>

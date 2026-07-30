@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useFetchData } from '../hooks/useContent';
 
 export default function Work() {
@@ -35,7 +36,7 @@ export default function Work() {
     },
   ];
 
-  const projects = dbProjects || defaultProjects;
+  const projects = (dbProjects || defaultProjects).slice(0, 4);
 
   if (loading) {
     return (
@@ -175,6 +176,18 @@ export default function Work() {
               );
             }
           })}
+        </div>
+
+        {/* View All Projects Button */}
+        <div className="mt-24 text-center">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 border border-outline-variant px-8 py-3 text-xs uppercase tracking-widest text-on-surface hover:bg-primary hover:text-on-primary hover:border-primary transition-all duration-300 font-label-mono"
+            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+          >
+            VIEW ALL PROJECTS
+            <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          </Link>
         </div>
       </div>
 

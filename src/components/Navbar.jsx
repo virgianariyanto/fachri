@@ -1,30 +1,32 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../auth/AuthContext';
 
 export default function Navbar({ onOpenInquiry }) {
   const { user, logout } = useAuth();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   return (
     <nav className="w-full top-0 sticky z-50 bg-surface border-outline-variant">
       <div className="flex justify-between items-center w-full px-6 md:px-16 py-6 max-w-full">
-        <a href="#home" className="font-headline-md text-2xl font-bold text-primary tracking-tighter">
+        <Link to="/" className="font-headline-md text-2xl font-bold text-primary tracking-tighter">
           fachri
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-10 font-label-sm text-xs tracking-widest uppercase">
-          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#work">
+          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href={isHome ? "#work" : "/#work"}>
             PROJECTS
           </a>
-          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#about">
+          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href={isHome ? "#about" : "/#about"}>
             STUDIO
           </a>
-          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#services">
+          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href={isHome ? "#services" : "/#services"}>
             SERVICES
           </a>
-          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href="#contact">
+          <a className="text-on-surface-variant hover:text-secondary transition-colors duration-300" href={isHome ? "#contact" : "/#contact"}>
             CONTACT
           </a>
         </div>
@@ -86,28 +88,28 @@ export default function Navbar({ onOpenInquiry }) {
           <a
             onClick={() => setMobileMenuOpen(false)}
             className="block text-on-surface-variant hover:text-secondary transition-colors"
-            href="#work"
+            href={isHome ? "#work" : "/#work"}
           >
             PROJECTS
           </a>
           <a
             onClick={() => setMobileMenuOpen(false)}
             className="block text-on-surface-variant hover:text-secondary transition-colors"
-            href="#about"
+            href={isHome ? "#about" : "/#about"}
           >
             STUDIO
           </a>
           <a
             onClick={() => setMobileMenuOpen(false)}
             className="block text-on-surface-variant hover:text-secondary transition-colors"
-            href="#services"
+            href={isHome ? "#services" : "/#services"}
           >
             SERVICES
           </a>
           <a
             onClick={() => setMobileMenuOpen(false)}
             className="block text-on-surface-variant hover:text-secondary transition-colors"
-            href="#contact"
+            href={isHome ? "#contact" : "/#contact"}
           >
             CONTACT
           </a>
