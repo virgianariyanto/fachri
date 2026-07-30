@@ -115,7 +115,7 @@ export default function Navbar({ onOpenInquiry }) {
           </a>
 
           {/* Mobile Auth Links */}
-          <div className="pt-4 border-t border-outline-variant space-y-3">
+          <div className="pt-0 border-outline-variant space-y-3">
             {user ? (
               <>
                 <Link
@@ -140,8 +140,8 @@ export default function Navbar({ onOpenInquiry }) {
                 onClick={() => setMobileMenuOpen(false)}
                 className="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors"
               >
-                <span className="material-symbols-outlined text-base">lock</span>
-                LOGIN / ADMIN
+                {/* <span className="material-symbols-outlined text-base">lock</span>
+                LOGIN / ADMIN */}
               </Link>
             )}
           </div>
