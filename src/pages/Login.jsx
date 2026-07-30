@@ -76,13 +76,13 @@ export default function Login() {
         </div>
 
         <div className="relative z-10">
-          <div className="border border-white/20 p-6">
+          {/* <div className="border border-white/20 p-6">
             <p className="text-on-primary/60 text-xs uppercase tracking-widest mb-2" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
               DEMO CREDENTIALS
             </p>
             <p className="text-on-primary font-mono text-sm">admin@studio3d.id</p>
             <p className="text-on-primary/70 font-mono text-sm">studio3d2024</p>
-          </div>
+          </div> */}
         </div>
       </div>
 

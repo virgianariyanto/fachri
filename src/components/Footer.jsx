@@ -1,7 +1,11 @@
 import React from 'react';
 
 export default function Footer() {
-  const links = ['DRIBBBLE', 'BEHANCE', 'INSTAGRAM', 'LINKEDIN'];
+  const links = [
+    { name: 'BEHANCE', href: 'https://www.behance.net/fachrikurr' },
+    { name: 'INSTAGRAM', href: 'https://www.instagram.com/fachrikurr' },
+    { name: 'LINKEDIN', href: 'https://www.linkedin.com/in/fachrikurniawan/' }
+  ];
 
   return (
     <footer className="w-full relative bg-surface border-t border-outline-variant">
@@ -19,11 +23,13 @@ export default function Footer() {
           <div className="flex flex-wrap gap-6 md:gap-12">
             {links.map((item) => (
               <a
-                key={item}
-                href="#"
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-label-sm text-xs uppercase tracking-widest text-on-surface-variant hover:text-secondary border-b border-transparent hover:border-secondary transition-all opacity-80 hover:opacity-100"
               >
-                {item}
+                {item.name}
               </a>
             ))}
           </div>
