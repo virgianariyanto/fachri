@@ -44,8 +44,12 @@ app.use((err, req, res, _next) => {
   res.status(500).json({ error: 'Internal server error.' });
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 Fachri API Server running at http://localhost:${PORT}`);
-  console.log(`   Health: http://localhost:${PORT}/api/health`);
-  console.log(`   Seed admin: POST http://localhost:${PORT}/api/auth/seed-admin\n`);
-});
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`\n🚀 Fachri API Server running at http://localhost:${PORT}`);
+    console.log(`   Health: http://localhost:${PORT}/api/health`);
+    console.log(`   Seed admin: POST http://localhost:${PORT}/api/auth/seed-admin\n`);
+  });
+}
+
+export default app;
