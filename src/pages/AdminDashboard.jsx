@@ -643,14 +643,44 @@ export default function AdminDashboard() {
                     </div>
 
                     <div>
-                      <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>URL Gambar Render (Unsplash / URL absolut)</label>
-                      <input
-                        type="url"
-                        value={projectForm.image_url}
-                        onChange={(e) => setProjectForm({ ...projectForm, image_url: e.target.value })}
-                        placeholder="https://images.unsplash.com/..."
-                        className="w-full bg-surface-container-low border border-outline-variant px-4 py-2 text-sm focus:outline-none"
-                      />
+                      <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Gambar Render Proyek</label>
+                      <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                        {projectForm.image_url && (
+                          <div className="relative w-32 h-20 bg-surface-container border border-outline-variant overflow-hidden flex-shrink-0">
+                            <img
+                              src={projectForm.image_url}
+                              alt="Preview proyek"
+                              className="w-full h-full object-cover"
+                            />
+                            <button
+                              type="button"
+                              onClick={() => setProjectForm({ ...projectForm, image_url: '' })}
+                              className="absolute top-1 right-1 bg-error text-on-error w-5 h-5 rounded-full flex items-center justify-center text-xs hover:bg-red-700 transition-colors"
+                              title="Hapus gambar"
+                            >
+                              &times;
+                            </button>
+                          </div>
+                        )}
+                        <div className="flex-1 w-full">
+                          <input
+                            type="file"
+                            accept="image/*"
+                            onChange={(e) => {
+                              const file = e.target.files[0];
+                              if (file) {
+                                const reader = new FileReader();
+                                reader.onloadend = () => {
+                                  setProjectForm({ ...projectForm, image_url: reader.result });
+                                };
+                                reader.readAsDataURL(file);
+                              }
+                            }}
+                            className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border file:border-outline-variant file:text-xs file:font-semibold file:bg-surface-container file:text-on-surface hover:file:bg-primary hover:file:text-on-primary transition-all cursor-pointer"
+                          />
+                          <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Rekomendasi ukuran di bawah 2MB.</p>
+                        </div>
+                      </div>
                     </div>
 
                     <div>
@@ -714,7 +744,22 @@ export default function AdminDashboard() {
                   <tbody>
                     {projects.map((p) => (
                       <tr key={p.id} className="border-b border-outline-variant hover:bg-surface-container-low transition-colors">
-                        <td className="px-6 py-4 font-semibold text-sm text-on-surface" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{p.title}</td>
+                        <td className="px-6 py-4">
+                          <div className="flex items-center gap-3">
+                            {p.image_url ? (
+                              <img
+                                src={p.image_url}
+                                alt={p.title}
+                                className="w-12 h-8 object-cover border border-outline-variant flex-shrink-0"
+                              />
+                            ) : (
+                              <div className="w-12 h-8 bg-surface-container border border-outline-variant flex items-center justify-center flex-shrink-0">
+                                <span className="material-symbols-outlined text-xs text-on-surface-variant">image</span>
+                              </div>
+                            )}
+                            <span className="font-semibold text-sm text-on-surface" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>{p.title}</span>
+                          </div>
+                        </td>
                         <td className="px-6 py-4 text-xs text-on-surface-variant" style={{ fontFamily: 'JetBrains Mono, monospace' }}>{p.category}</td>
                         <td className="px-6 py-4 text-sm text-on-surface" style={{ fontFamily: 'Inter, sans-serif' }}>{p.client}</td>
                         <td className="px-6 py-4 text-sm text-on-surface" style={{ fontFamily: 'JetBrains Mono, monospace' }}>{p.year}</td>
@@ -908,14 +953,44 @@ export default function AdminDashboard() {
                     />
                   </div>
                   <div>
-                    <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant">URL Gambar Hero (Unsplash / URL absolut)</label>
-                    <input
-                      type="url"
-                      value={heroForm.image_url}
-                      onChange={(e) => setHeroForm({ ...heroForm, image_url: e.target.value })}
-                      placeholder="https://images.unsplash.com/..."
-                      className="w-full bg-surface-container-low border border-outline-variant px-4 py-3 text-sm focus:outline-none"
-                    />
+                    <label className="block text-xs uppercase tracking-wider mb-2 text-on-surface-variant">Gambar Hero</label>
+                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                      {heroForm.image_url && (
+                        <div className="relative w-32 h-20 bg-surface-container border border-outline-variant overflow-hidden flex-shrink-0">
+                          <img
+                            src={heroForm.image_url}
+                            alt="Preview hero"
+                            className="w-full h-full object-cover"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => setHeroForm({ ...heroForm, image_url: '' })}
+                            className="absolute top-1 right-1 bg-error text-on-error w-5 h-5 rounded-full flex items-center justify-center text-xs hover:bg-red-700 transition-colors"
+                            title="Hapus gambar"
+                          >
+                            &times;
+                          </button>
+                        </div>
+                      )}
+                      <div className="flex-1 w-full">
+                        <input
+                          type="file"
+                          accept="image/*"
+                          onChange={(e) => {
+                            const file = e.target.files[0];
+                            if (file) {
+                              const reader = new FileReader();
+                              reader.onloadend = () => {
+                                setHeroForm({ ...heroForm, image_url: reader.result });
+                              };
+                              reader.readAsDataURL(file);
+                            }
+                          }}
+                          className="w-full text-sm text-on-surface-variant file:mr-4 file:py-2 file:px-4 file:rounded-sm file:border file:border-outline-variant file:text-xs file:font-semibold file:bg-surface-container file:text-on-surface hover:file:bg-primary hover:file:text-on-primary transition-all cursor-pointer"
+                        />
+                        <p className="text-[10px] text-on-surface-variant mt-1" style={{ fontFamily: 'JetBrains Mono, monospace' }}>Format: JPG, PNG, WEBP. Rekomendasi ukuran di bawah 2MB.</p>
+                      </div>
+                    </div>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
